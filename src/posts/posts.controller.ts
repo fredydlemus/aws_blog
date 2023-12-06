@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Post } from "@nestjs/common";
 import { PostsService } from "./post.service";
+import { CreatePostDto } from "./create-post.dto";
 
 @Controller('posts')
 export class PostsController {
@@ -12,7 +13,7 @@ export class PostsController {
     }
 
     @Post()
-    createPost(@Body() payload: any) {
+    createPost(@Body() payload: CreatePostDto) {
         return this.postsService.create(payload);
     }
 }
